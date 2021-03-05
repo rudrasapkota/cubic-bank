@@ -54,6 +54,9 @@ public interface CustomerService {
 	void updatePayee(UpdatePayeeVO updatePayeeVO);
 
 	void deleteCustomer(String userid);
+	
+	CustomerVO findCustomerByUsername(String username);
+
 
 	
 

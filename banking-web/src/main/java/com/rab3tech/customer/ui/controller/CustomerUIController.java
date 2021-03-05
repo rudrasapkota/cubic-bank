@@ -87,7 +87,15 @@ public class CustomerUIController {
 	@Autowired
    private CustomerTransactionService customerTransactionService;
 	
-	
+	@GetMapping("/customer/profile")
+ 	public String showProfile(Model model,HttpSession session){
+ 		LoginVO  loginVO2=(LoginVO)session.getAttribute("userSessionVO");
+ 		//userid,username,loginid,emailid
+ 		String currentLoggedInUserName=loginVO2.getUsername();
+ 		CustomerVO customerVO=customerService.findCustomerByUsername(currentLoggedInUserName);
+ 		model.addAttribute("customerVO", customerVO);
+ 		return "/customer/profile";//profile.html
+ 	}
 	
 	
 	@GetMapping("/customer/sendAccountStmt")
