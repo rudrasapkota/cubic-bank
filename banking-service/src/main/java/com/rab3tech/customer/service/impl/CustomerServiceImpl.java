@@ -257,6 +257,15 @@ public class CustomerServiceImpl implements CustomerService {
 		
 	}
 	
+	@Override
+ 	public void updatePhoto(int cid,byte[] photo) {
+ 		Optional<Customer> optionalCustomer=customerRepository.findById(cid);
+ 		if(optionalCustomer.isPresent()) {
+ 			Customer customer=optionalCustomer.get();
+ 			customer.setImage(photo);
+ 			//customerRepository.save(customer);
+ 		}
+ 	}
 	
 	@Override
 	public byte[] findPhotoByid(int cid) {
@@ -458,5 +467,14 @@ public class CustomerServiceImpl implements CustomerService {
 		//This is deleting entity by id
 		payeeRepository.deleteById(payeeId);
 	}
+	@Override
+ 	public void updateCustomerProfile(int cid, String name, String jobTitle) {
+ 		Optional<Customer> optionalCustomer=customerRepository.findById(cid);
+ 		if(optionalCustomer.isPresent()) {
+ 			Customer customer=optionalCustomer.get();
+ 			customer.setName(name);
+ 			customer.setJobTitle(jobTitle);
+ 		}
 
+}
 }

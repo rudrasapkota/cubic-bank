@@ -57,7 +57,8 @@ public interface CustomerService {
 	
 	CustomerVO findCustomerByUsername(String username);
 
-
+	void updatePhoto(int cid, byte[] photo);
 	
+	void updateCustomerProfile(int cid, String name, String jobTitle);
 
 }
