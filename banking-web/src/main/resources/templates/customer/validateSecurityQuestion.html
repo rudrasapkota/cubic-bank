@@ -36,15 +36,17 @@
    <span th:utext="${error}" style="color: red;font-size: 18px;font-weight: bold;"  id="errorMessage"></span>
       <span th:utext="${message}" style="color: blue;font-size: 18px;font-weight: bold;"></span>
   <div style="width: 70%">
-   <form th:action="@{/customer/forget/password}" method="POST">
+   <form th:action="@{/customer/validate/question}" method="POST">
+
+     <input type="hidden" name="email"  th:value="${param.email}"> 
     <div class="form-group">
-      <label for="username">Security Questions1:</label>
+     <label for="QQ1" th:utext="${questions[0]}">Security Questions1:</label>
       <input type="text" style="width: 60%;" class="form-control"  name="securityAns1"  id="securityAns1" 
        placeholder="Enter SQ1">
     </div>
 
      <div class="form-group">
-      <label for="username">Security Questions2:</label>
+        <label for="QQ2" th:utext="${questions[1]}">Security Questions2:</label>
       <input type="text" style="width: 60%;" class="form-control"  name="securityAns2"  id="securityAns2" 
        placeholder="Enter SQ1">
     </div>
